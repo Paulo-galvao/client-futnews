@@ -10,12 +10,12 @@ export default function Navbar() {
             <div className="options">
                 <div className="navbar-login">
                     <button className="login">Login
-                        <i class='bx bx-log-in'></i>
+                        <i className='bx bx-log-in'></i>
                     </button>
                  </div>
                 <div className="navbar-search">
                     <input type="text" placeholder="Procure por um título" />
-                    <i class='bx bx-search-alt'></i>
+                    <i className='bx bx-search-alt'></i>
                 </div>
             </div>
         </nav>

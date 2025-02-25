@@ -1,0 +1,36 @@
+.card {
+    max-width: 400px;
+    max-height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 4px;
+}
+
+.card .title, .card .text, .card a, .card-options {
+    padding: 0 5px 5px 5px;
+}
+
+.card .img {
+    width: 400px;
+}
+
+.card .title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+}
+
+.card .text {
+    max-height: 40px;
+    overflow: hidden;
+}
+
+.card button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 2px 2px 2px 0;
+}
+
+.card .more {
+    color: blueviolet;
+}
+
