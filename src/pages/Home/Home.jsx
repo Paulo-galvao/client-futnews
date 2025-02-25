@@ -12,7 +12,7 @@ export default function Home() {
     async function fetchNews() {
         try {
             const response = await getAllNews();
-            setNews(response.data.results);
+            setNews(response.data.results);            
             
         } catch (error) {
             console.log(error);
@@ -21,6 +21,7 @@ export default function Home() {
 
     useEffect(function() {        
         fetchNews()
+        // console.log(news)
     }, [])
     
     

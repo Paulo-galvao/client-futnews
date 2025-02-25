@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import "./Navbar.css"
 
 export default function Navbar() {
@@ -15,7 +16,9 @@ export default function Navbar() {
                  </div>
                 <div className="navbar-search">
                     <input type="text" placeholder="Procure por um título" />
-                    <i className='bx bx-search-alt'></i>
+                    <Link to="/search">
+                        <i className='bx bx-search-alt'></i>
+                    </Link>
                 </div>
             </div>
         </nav>
