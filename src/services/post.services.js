@@ -1,25 +1,18 @@
 import axios from 'axios';
 
-const baseUrl = "https://api-fut-news.onrender.com";
-
-// async function getAllNews() {
-//     try {
-//         const response = await axios.get(`${baseUrl}/api/news`);
-//         return response;
-        
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+const baseUrl = "http://localhost:3021";
 
 async function getAllNews() {
-    try {
-        const response = await axios.get(`${baseUrl}/api/news`);
-        return response;
-        
-    } catch (error) {
-        
-    }
+    const response = axios.get(`${baseUrl}/api/news`);
+    return response;
 }
 
-export default getAllNews;
+function searchByTitle(title) {
+    const response = axios.get(`${baseUrl}/api/news/search?title=${title}`);
+    return response;
+}
+
+export default {
+    getAllNews,
+    searchByTitle
+};

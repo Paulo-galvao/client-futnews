@@ -19,6 +19,11 @@ nav {
     font-weight: bold;
 }
 
+.navbar-logo a {
+    text-decoration: none;
+    color: var(--menu-letters);
+}
+
 .options {
     display: flex;
     gap: 20px;
@@ -30,6 +35,10 @@ nav {
     gap: 2px;
     padding: 0 10px;
     
+}
+
+.navbar-login a {
+    text-decoration: none;
 }
 
 .navbar-login button {
@@ -71,14 +80,36 @@ button.login {
     background-color: #F9F6EE;
 }
 
-.navbar-search i {
+.navbar-search input:focus {
+    border: 1px solid #000;
+}
+
+.navbar-search button {
     position: relative;
     right: 21px;
+    top: 1.2px;
     cursor: pointer;
     padding: 4px;
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-search button:hover {
+    color: #7c7c7c;
+    transition: .3s;
 }
 
 img {
     width: 16px;
 }
 
+.error-title-msg {
+    position: absolute;
+    top: 50px;
+    border: 1px solid red;
+    padding: 4px;
+    border-radius: 5px;
+    width: 200px;
+    background-color: pink;
+    font-size: .9em;
+}

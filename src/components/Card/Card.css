@@ -11,6 +11,8 @@
 
 .card .img {
     width: 400px;
+    max-height: 200px;
+    
 }
 
 .card .title {

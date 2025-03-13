@@ -1,8 +1,8 @@
 import Navbar from "../../components/Navbar/Navbar"
 import Card from "../../components/Card/Card"
-import getAllNews from "../../services/post.services.js"
+import getService from "../../services/post.services.js"
 import { useState, useEffect } from "react"
-
+const {getAllNews} = getService;
 import "./Home.css"
 
 export default function Home() {
