@@ -2,8 +2,11 @@ import Navbar from "../../components/Navbar/Navbar"
 import Card from "../../components/Card/Card"
 import getService from "../../services/post.services.js"
 import { useState, useEffect } from "react"
-const {getAllNews} = getService;
+import Cookies from "js-cookie"
+
 import "./Home.css"
+
+const {getAllNews} = getService;
 
 export default function Home() {
     const [news, setNews] = useState([]);
@@ -21,7 +24,7 @@ export default function Home() {
 
     useEffect(function() {        
         fetchNews()
-        // console.log(news)
+        console.log(Cookies.get("token"));
     }, [])
     
     

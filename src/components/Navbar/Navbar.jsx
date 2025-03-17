@@ -1,5 +1,11 @@
 import { Link, useNavigate } from "react-router"
 import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import userServices from "../../services/user.services.js";
+
+const {userLogged} = userServices;
+
 import "./Navbar.css"
 
 export default function Navbar() {
@@ -7,6 +13,32 @@ export default function Navbar() {
         formState: { errors } 
     } = useForm();
     const navigate = useNavigate();
+
+    const [user, setUser] = useState(undefined);
+
+    async function getUserLogged() {
+        try {
+            const response = await userLogged();
+            setUser(response.data)
+            console.log(response.data);
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    function signout() {
+        Cookies.remove("token");
+        setUser(undefined);
+        navigate("/");
+    }
+
+    useEffect( () => {
+        if(Cookies.get("token")) {
+            getUserLogged();
+            
+        }
+    }, [])
 
     return <>
         <nav>
@@ -19,11 +51,20 @@ export default function Navbar() {
             </div>
             <div className="options">
                 <div className="navbar-login">
+                    {user? (
+                        <>
+                            <Link to={"/profile"}>
+                                <p>{user.username}</p>
+                            </Link>
+                            <button onClick={signout} className="login">Logout</button>
+                        </>
+                    ) : (
                     <Link to={"/auth"}>
                         <button className="login">Login
                             <i className='bx bx-log-in'></i>
                         </button>
                     </Link>
+                    )}
                  </div>
                 <div className="navbar-search">
 

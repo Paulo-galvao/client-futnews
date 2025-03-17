@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const baseUrl = "http://localhost:3021";
 
-async function getAllNews() {
+function getAllNews() {
     const response = axios.get(`${baseUrl}/api/news`);
     return response;
 }
