@@ -20,7 +20,7 @@ export default function Signup() {
                         const response = await signUp(data);
                         Cookies.set("token", response.data.token, {expires: 1});
                         navigate("/");
-                        console.log(response)
+                        
                     } catch (error) {
                         console.log(error);
                     }

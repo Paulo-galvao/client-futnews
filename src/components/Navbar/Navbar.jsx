@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router"
 import { useForm } from "react-hook-form";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, } from "react";
 import { UserContext } from "../../Context/UserContext.jsx";
 import Cookies from "js-cookie";
 import userServices from "../../services/user.services.js";
@@ -15,7 +15,6 @@ export default function Navbar() {
     } = useForm();
     const navigate = useNavigate();
 
-    // const [user, setUser] = useState(undefined);
     const {user, setUser} = useContext(UserContext)
 
     async function getUserLogged() {

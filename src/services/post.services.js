@@ -22,8 +22,48 @@ function getPostsByUser() {
     return response;
 }
 
+function getById(id) {
+    const response = axios.get(`${baseUrl}/api/news/${id}`, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`  
+        } 
+    });
+    return response;
+}
+
+function create(data) {
+    const response = axios.post(`${baseUrl}/api/news`,data, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`  
+        } 
+    });
+    return response;
+}
+
+function update(data, id) {
+    const response = axios.patch(`${baseUrl}/api/news/${id}`,data, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`  
+        } 
+    })
+    return response;
+}
+
+function deleteNews(id) {
+    const response = axios.delete(`${baseUrl}/api/news/${id}`, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`  
+        } 
+    })
+    return response;
+}
+
 export default {
     getAllNews,
     searchByTitle,
-    getPostsByUser
+    getPostsByUser,
+    create,
+    update,
+    getById,
+    deleteNews
 };
