@@ -1,6 +1,6 @@
 import "./Card.css"
 
-export default function Card({props}) {    
+export default function Card({props}) {     
 
     let dateParts = props.createdAt.split("T")[0].split("-");
     let finalDate = `${dateParts[2]} de ${dateParts[1]} de ${dateParts[0]}`

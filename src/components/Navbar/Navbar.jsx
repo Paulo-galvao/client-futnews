@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router"
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../Context/UserContext.jsx";
 import Cookies from "js-cookie";
 import userServices from "../../services/user.services.js";
 
@@ -14,13 +15,13 @@ export default function Navbar() {
     } = useForm();
     const navigate = useNavigate();
 
-    const [user, setUser] = useState(undefined);
+    // const [user, setUser] = useState(undefined);
+    const {user, setUser} = useContext(UserContext)
 
     async function getUserLogged() {
         try {
             const response = await userLogged();
             setUser(response.data)
-            console.log(response.data);
             
         } catch (error) {
             console.log(error);

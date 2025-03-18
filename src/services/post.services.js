@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const baseUrl = "http://localhost:3021";
 
@@ -12,7 +13,17 @@ function searchByTitle(title) {
     return response;
 }
 
+function getPostsByUser() {
+    const response = axios.get(`${baseUrl}/api/news/byuser`, {
+        headers: {
+            Authorization: `Bearer ${Cookies.get("token")}`  
+        } 
+    });
+    return response;
+}
+
 export default {
     getAllNews,
-    searchByTitle
+    searchByTitle,
+    getPostsByUser
 };
