@@ -58,6 +58,11 @@ function deleteNews(id) {
     return response;
 }
 
+function getTop() {
+    const response = axios.get(`${baseUrl}/api/news/top`);
+    return response;
+}
+
 export default {
     getAllNews,
     searchByTitle,
@@ -65,5 +70,6 @@ export default {
     create,
     update,
     getById,
-    deleteNews
+    deleteNews,
+    getTop
 };

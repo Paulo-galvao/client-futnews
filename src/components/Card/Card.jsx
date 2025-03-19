@@ -8,7 +8,7 @@ export default function Card({props}) {
     return (
 
         <section className="card">
-            <img className="img" src={props.banner} alt="ney" />
+            <img className="img" src={props.banner} alt="" />
             <div className="header">
                 <h2 className="title">{props.title}</h2>
                 <p className="text"> {props.text} </p>

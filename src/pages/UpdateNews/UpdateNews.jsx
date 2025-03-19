@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router"
 import { useEffect } from "react";
 import PostServices from "../../services/post.services.js"
 
+
 const {update, getById} = PostServices
 
 export default function UpdateNews() {
@@ -34,43 +35,52 @@ export default function UpdateNews() {
     return (
         <>
             <Navbar/>
-            <form onSubmit={handleSubmit( async (data) => {
-                try {
-                    await update(data, id);
-                    navigate("/profile");
-                } catch (error) {
-                    console.log(error);
-                }
-        })}>
-            <input 
-                type="text"
-                name="title"
-                
-                placeholder="Título da Postagem"
-                {...register("title", 
-                    {required: "Esse campo não pode estar vazio"})
-                }
-            />
-            <input 
-                type="text" 
-                name="banner"
-                
-                placeholder="Url da imagem"
-                {...register("banner", 
-                    {required: "Esse campo não pode estar vazio"})
-                }
-            />
-            <textarea 
-                type="text"
-                name="text"
-                
-                placeholder="Conteúdo da Postagem"
-                {...register("text", 
-                    {required: "Esse campo não pode estar vazio"})
-                }
-            />
-            <button type="submit">Atualizar</button>
-        </form>
+            <section className="auth-container">
+
+                <form onSubmit={handleSubmit( async (data) => {
+                    try {
+                        await update(data, id);
+                        navigate("/profile");
+                    } catch (error) {
+                        console.log(error);
+                    }
+                })}>
+                    <h2>Atualizar Notícia</h2>
+                <input 
+                    type="text"
+                    name="title"
+                    className="input-space"
+                    placeholder="Título da Postagem"
+                    {...register("title", 
+                        {required: "Esse campo não pode estar vazio"})
+                    }
+                />
+                <input 
+                    type="text" 
+                    name="banner"
+                    className="input-space"
+                    placeholder="Url da imagem"
+                    {...register("banner", 
+                        {required: "Esse campo não pode estar vazio"})
+                    }
+                />
+                <textarea 
+                    type="text"
+                    name="text"
+                    className="textarea-space"
+                    placeholder="Conteúdo da Postagem"
+                    {...register("text", 
+                        {required: "Esse campo não pode estar vazio"})
+                    }
+                />
+                <div className="button-area">
+                    <button type="submit">Atualizar</button>
+                    <button onClick={
+                        () => {navigate(-1)}
+                    }>Voltar</button>
+                </div>
+            </form>
+            </section>
         </>
     )
 }

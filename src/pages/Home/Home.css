@@ -1,3 +1,19 @@
 .news-board {
     margin: 0 auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+@media screen and (max-width: 1400px) {
+    .news-board {
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+@media screen and (max-width: 900px) {
+    .news-board {
+        grid-template-columns: 1fr ;
+    }
 }

@@ -5,6 +5,7 @@ import postServices from "../../services/post.services.js";
 import Card from "../../components/Card/Card.jsx";
 import { Link } from "react-router";
 
+import "./Profile.css"
 
 const {getPostsByUser} = postServices;
 
@@ -26,24 +27,38 @@ export default function Profile() {
         <>
             <Navbar/>
             <div className="profile-container">
-                <h1>{user.name}</h1>
-                <p>{user.username}</p>
-                <p>{user.email}</p>
-                <button>
-                <Link to={"/addnews"}>
-                    Adicionar
-                </Link>
-                </button>
+                <div className="profile-content">
+                    <div className="profile-user">
+                        <img src="user.png" alt="user" />
+                    </div>
+                    <div className="profile-items">
+                        <h2>{user.name}</h2>
+                        <p>{user.username}</p>
+                        <p>{user.email}</p>
+                            <Link to={"/addnews"}>
+                                <button className="add-news">
+                                        Adicionar Nova Notícia
+                                </button>
+                            </Link>
+
+                    </div>
+                </div>
                 <section className="news-board">
                     {news.map( (data) => {
-                        return (
-                        <>
+                        return ( 
+                        <div >
                             <Card props={data} key={data.id} />
-                            <button>
-                                <Link to={`/updatenews/${data.id}`}>Atualizar</Link>
-                                <Link to={`/deletenews/${data.id}`}>Excluir</Link>
-                            </button>
-                        </>
+                                <Link to={`/updatenews/${data.id}`}>
+                                    <button className="manage-news">
+                                        <i className='bx bxs-edit-alt'></i>
+                                    </button>
+                                </Link>
+                                <Link to={`/deletenews/${data.id}`}>
+                                    <button className="manage-news">
+                                        <i className='bx bx-trash-alt'></i>
+                                    </button>
+                                </Link>
+                        </div>
                         )
                     })}
                     

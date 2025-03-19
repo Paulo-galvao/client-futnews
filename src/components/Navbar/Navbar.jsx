@@ -5,7 +5,7 @@ import { UserContext } from "../../Context/UserContext.jsx";
 import Cookies from "js-cookie";
 import userServices from "../../services/user.services.js";
 
-const {userLogged} = userServices;
+const {userLogged} = userServices; 
 
 import "./Navbar.css"
 
@@ -23,7 +23,7 @@ export default function Navbar() {
             setUser(response.data)
             
         } catch (error) {
-            console.log(error);
+            console.log(error); 
         }
     }
 
@@ -41,8 +41,8 @@ export default function Navbar() {
     }, [])
 
     return <>
-        <nav>
-                
+    <div className="nav-container">
+        <nav>    
             <div className="navbar-logo">
                 <Link to={"/"}>
                     <span>FutNews</span>
@@ -50,14 +50,17 @@ export default function Navbar() {
                 </Link>
             </div>
             <div className="options">
-                <div className="navbar-login">
+                <div className="navbar-login"> 
                     {user? (
-                        <>
+                        <div className="username">
                             <Link to={"/profile"}>
-                                <p>{user.username}</p>
+                                <p>
+                                    <i className='bx bx-user'></i>
+                                    {user.username}
+                                </p>
                             </Link>
                             <button onClick={signout} className="login">Logout</button>
-                        </>
+                        </div>
                     ) : (
                     <Link to={"/auth"}>
                         <button className="login">Login
@@ -89,5 +92,7 @@ export default function Navbar() {
             </div>
             
         </nav>
+
+    </div>
     </>
 }

@@ -1,9 +1,17 @@
 nav {
-    background: var(--menu);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     height: 50px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.nav-container {
+    width: 100%;
+    height: 50px;
+    background: var(--menu);
+    margin-bottom: 20px;
 }
 
 .navbar-logo {
@@ -12,7 +20,7 @@ nav {
     color: var(--menu-letters);
 }
 
-.navbar-logo span {
+.navbar-logo span { 
     padding: 0 5px;
     font-size: 1.2em;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -112,4 +120,14 @@ img {
     width: 200px;
     background-color: pink;
     font-size: .9em;
+}
+
+ .username {
+    display: flex;
+    align-items: center;
+}
+
+.username p {
+    text-decoration: none;
+    color: green;
 }

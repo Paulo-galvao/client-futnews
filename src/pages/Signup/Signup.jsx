@@ -4,6 +4,8 @@ import userServices from "../../services/user.services.js"
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 
+import "./Signup.css"
+
 const {signUp} = userServices;
 
 export default function Signup() {
@@ -25,7 +27,9 @@ export default function Signup() {
                         console.log(error);
                     }
                 })}>
+                    <h2>Cadastre-se</h2>
                     <input 
+                        className="input-space"
                         name="name" 
                         {...register("name", 
                             {required: "Esse campo não pode estar vazio"})
@@ -33,6 +37,7 @@ export default function Signup() {
                         type="text" 
                         placeholder="Nome"/>
                     <input 
+                        className="input-space"
                         name="username" 
                         {...register("username", 
                             {required: "Esse campo não pode estar vazio"})
@@ -40,6 +45,7 @@ export default function Signup() {
                         type="text" 
                         placeholder="Nome de usuário"/>
                     <input 
+                        className="input-space"
                         name="email" 
                         {...register("email", 
                             {required: "Esse campo não pode estar vazio"})
@@ -47,6 +53,7 @@ export default function Signup() {
                         type="text" 
                         placeholder="Email"/>
                     <input 
+                        className="input-space"
                         name="password"
                         type="password" 
                         {...register("password", 
@@ -54,6 +61,7 @@ export default function Signup() {
                         }
                         placeholder="Senha"/>
                     <input 
+                        className="input-space"
                         name="checkPassword"
                         type="password" 
                         {...register("checkPassword", 
